@@ -1,20 +1,24 @@
 {
-    "todos": [
-        {
-            "title": "Get dressed",
-            "isComplete": false
-        },
-        {
-            "title": "Buy food",
-            "isComplete": false
-        },
-        {
-            "title": "Eat lunch",
-            "isComplete": true
-        },
-        {
-            "title": "Write Article",
-            "isComplete": true
-        }
-    ]
+  "todos": [
+    {
+      "id": "6060CACC-D796-46BC-B820-85C35353A1ED",
+      "title": "Get dressed",
+      "isComplete": false
+    },
+    {
+      "id": "A9723986-4852-4A49-A092-8AF226997120",
+      "title": "Buy food",
+      "isComplete": false
+    },
+    {
+      "id": "9328C207-A595-48C0-9FE3-CB405CE0506D",
+      "title": "Eat lunch",
+      "isComplete": true
+    },
+    {
+      "id": "D3B6E924-C891-4ECE-B9AC-A14B361E9A2B",
+      "title": "Write Article",
+      "isComplete": true
+    }
+  ]
 }

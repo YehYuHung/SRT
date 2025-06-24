@@ -1,27 +1,21 @@
 <template>
   <nav>
     <ul class="nav nav-pills nav-justified">
-      <li role="presentation">
-        <router-link :to="{ name: 'index' }">首頁</router-link>
-      </li>
-      <li role="presentation">
-        <router-link :to="{ name: 'report' }">報表</router-link>
-      </li>
-      <li role="presentation">
-        <router-link :to="{ name: 'complexPart' }">測試</router-link>
-      </li>
-      <li role="presentation">
-        <router-link :to="{ name: 'grid' }">檢視</router-link>
-      </li>
-      <li role="presentation">
-        <router-link :to="{ name: 'ajax' }">API</router-link>
+      <li v-for="item in navItems" :key="item.name" role="presentation">
+        <router-link :to="{ name: item.name }">{{ item.label }}</router-link>
       </li>
     </ul>
   </nav>
 </template>
 
-<style scoped>
-</style>
-
 <script setup>
+const navItems = [
+  { name: "index", label: "首頁" },
+  { name: "report", label: "報表" },
+  { name: "complexPart", label: "測試" },
+  { name: "grid", label: "檢視" },
+  { name: "ajax", label: "API" },
+];
 </script>
+
+<style scoped></style>

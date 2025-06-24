@@ -1,52 +1,27 @@
 <template>
   <div class="template-container">
     <h1>{{ msg }}</h1>
+
     <!-- 6. Rerender View -->
     <div class="form-container">
-      <form>
+      <form @submit.prevent="handleOut">
         <h3>表單測試</h3>
         <div class="div_text">
           <label for="username">帳號</label>
-          <input type="text" v-model="username" />
+          <input id="username" type="text" v-model="username" />
         </div>
         <div class="div_text">
-          <label for="username">密碼</label>
-          <input type="text" v-model="password" />
+          <label for="password">密碼</label>
+          <input id="password" type="password" v-model="password" />
         </div>
-        <button v-on:click="handleOut">送出</button>
+        <button type="submit">送出</button>
       </form>
     </div>
-    <button v-on:click="clickButton">Outside Button</button>
+
     <!-- 1. Click Button -->
+    <button @click="clickButton">Outside Button</button>
   </div>
 </template>
-
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-
-.form-container {
-  border: 5px solid black;
-  border-radius: 1rem;
-  margin: 2% 10%;
-  padding: 0px;
-}
-</style>
 
 <script>
 import axios from "axios";
@@ -73,30 +48,49 @@ export default {
         responseType: "blob",
       })
         .then((response) => {
-          var fileNameList =
-            response.headers["content-disposition"].split("filename=");
-          var fileName =
-            fileNameList.length > 1
-              ? decodeURIComponent(fileNameList[1])
-              : new Date().toLocaleString().split(" ")[0] + "_test.xlsx";
-          // create file link in browser's memory
-          const href = URL.createObjectURL(response.data);
+          const disposition = response.headers["content-disposition"] || "";
+          const matches = disposition.match(/filename="?([^"]+)"?/);
+          const fileName = matches
+            ? decodeURIComponent(matches[1])
+            : new Date().toISOString().split("T")[0] + "_test.xlsx";
 
-          // create "a" HTML element with href to file & click
+          const blob = new Blob([response.data], {
+            type: "application/vnd.ms-excel",
+          });
+          const href = URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = href;
-          link.setAttribute("download", fileName); //or any other extension
+          link.setAttribute("download", fileName);
           document.body.appendChild(link);
           link.click();
-
-          // clean up "a" element & remove ObjectURL
           document.body.removeChild(link);
           URL.revokeObjectURL(href);
         })
         .catch((err) => {
-          console.log(err);
+          console.error("下載失敗：", err);
         });
     },
   },
 };
 </script>
+
+<style scoped>
+.form-container {
+  border: 5px solid black;
+  border-radius: 1rem;
+  margin: 2% 10%;
+  padding: 1rem;
+}
+
+.div_text {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+input {
+  flex: 1;
+  margin-left: 1rem;
+}
+</style>
