@@ -1,0 +1,10 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/SRT/glove.jpeg"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><title>123123</title><script defer="defer" src="/SRT/js/chunk-vendors.289c7e4c.js"></script><script defer="defer" src="/SRT/js/app.b12595e8.js"></script><link href="/SRT/css/chunk-vendors.6dd3fd95.css" rel="stylesheet"><link href="/SRT/css/app.cabf9fd0.css" rel="stylesheet"></head><body><script>// 處理 gitHub Page 404 最佳解法
+        // https://unzan.medium.com/於github-page部屬靜態vue-js專案-在history-mode下子頁面會重新導向到404的解決方案-139f55323164
+        (function () {
+            let redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                history.replaceState(null, null, redirect);
+            }
+            console.log('環境變數:', process.env.VUE_APP_TITLE);
+        })();</script><noscript><strong>We're sorry but srt doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
