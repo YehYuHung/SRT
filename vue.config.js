@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: "/srt/",
+  publicPath: "/SRT/",
+  transpileDependencies: [],
   // Compile Error
   // https://cli.vuejs.org/config/#runtimecompiler
-}
+};

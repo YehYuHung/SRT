@@ -1,37 +1,14 @@
 {
   "name": "srt",
   "version": "0.1.0",
+  "homepage": "https://yehyuhung.github.io/SRT/",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 7799",
     "build": "vue-cli-service build",
     "build-development": "vue-cli-service build --mode development",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && node ./deploy/ghpages.js",
-    "deploy-development": "npm run build-development && node ./deploy/ghpages.js"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "ag-grid-community": "^28.2.1",
-    "ag-grid-vue": "^28.2.1",
-    "ag-grid-vue3": "^28.2.1",
-    "axios": "^1.2.0",
-    "browserslist": "^4.22.1",
-    "caniuse-lite": "^1.0.30001553",
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13",
-    "vue-loader": "^17.3.0",
-    "vue-property-decorator": "^8.0.0",
-    "vue-router": "^4.1.6"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.3.6",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "gh-pages": "^4.0.0"
+    "deploy": "npm run build && gh-pages -d dist -b gh-pages -r https://github.com/YehYuHung/SRT.git"
   },
   "eslintConfig": {
     "root": true,
@@ -48,5 +25,19 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "axios": "^1.10.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^10.2.0",
+    "gh-pages": "^6.3.0",
+    "vue-router": "^4.5.1",
+    "vue-template-compiler": "^2.7.16"
+  },
+  "dependencies": {
+    "vue": "^3.5.17"
+  }
 }
