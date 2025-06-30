@@ -27,15 +27,19 @@
     "not dead"
   ],
   "devDependencies": {
+    "@babel/core": "^7.27.7",
+    "@babel/eslint-parser": "^7.27.5",
+    "@eslint/js": "^9.30.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
-    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.5.17",
     "axios": "^1.10.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.30.0",
     "eslint-plugin-vue": "^10.2.0",
     "gh-pages": "^6.3.0",
-    "vue-router": "^4.5.1",
-    "vue-template-compiler": "^2.7.16"
+    "globals": "^16.2.0",
+    "vue-eslint-parser": "^10.1.4",
+    "vue-router": "^4.5.1"
   },
   "dependencies": {
     "vue": "^3.5.17"
